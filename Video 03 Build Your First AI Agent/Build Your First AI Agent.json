@@ -1,0 +1,176 @@
+{
+  "name": "Build Your First AI Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "filters": {}
+      },
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1.4,
+      "position": [-416, 0],
+      "id": "c0ea5acf-f3d1-414f-b5b0-a0f46a0c70a9",
+      "name": "Gmail Trigger",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "REDACTED",
+          "name": "REDACTED"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ef75072d-35fe-4f7d-8046-bb62b16b09f2",
+              "name": "from",
+              "value": "={{ $json.From }}",
+              "type": "string"
+            },
+            {
+              "id": "d84063b3-922d-43d3-8c4e-e5a767bbc15f",
+              "name": "emailBody",
+              "value": "={{ $json.snippet }}",
+              "type": "string"
+            },
+            {
+              "id": "b6281c5b-e992-46bb-baec-33bf6ccbc839",
+              "name": "threadId",
+              "value": "={{ $json.threadId }}",
+              "type": "string"
+            },
+            {
+              "id": "a230442b-f8e-4bb7-843f-2d21ea9fe612",
+              "name": "Subject",
+              "value": "={{ $json.Subject }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [-208, 0],
+      "id": "d01de2b9-920d-4471-acb4-1dbdd04693eb",
+      "name": "Get Data"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Original Email:\n\nSubject:\n{{ $json.Subject }}\n\nMessage:\n{{ $json.emailBody }}",
+        "options": {
+          "systemMessage": "=You are an expert professional email reply assistant connected to a Gmail Draft Tool.\n... (educational instructions remain unchanged) ..."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [0, 0],
+      "id": "9d3efdbb-9663-4583-acb4-8a82e9481a5f",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-oss-120b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [0, 192],
+      "id": "7515cb2f-9513-4dc8-8cdf-9d6c64fdab40",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "REDACTED",
+          "name": "REDACTED"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "draft",
+        "subject": "={{ $fromAI('Subject', ``, 'string') }}",
+        "emailType": "html",
+        "message": "={{ $fromAI('Message', ``, 'string') }}",
+        "options": {
+          "threadId": "={{ $json.threadId }}",
+          "sendTo": "={{ $json.from }}"
+        }
+      },
+      "type": "n8n-nodes-base.gmailTool",
+      "typeVersion": 2.2,
+      "position": [144, 192],
+      "id": "10953838-d17c-4053-964e-e2fb06c416dd",
+      "name": "Draft Tool",
+      "webhookId": "REDACTED",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "REDACTED",
+          "name": "REDACTED"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Gmail Trigger": [
+      {
+        "json": {
+          "id": "REDACTED",
+          "threadId": "REDACTED",
+          "snippet": "Assalam o Alaikum Asadullah , I hope you are doing well I really like your AI Automation Course in Urdu...",
+          "payload": {
+            "mimeType": "multipart/alternative"
+          },
+          "sizeEstimate": 1179,
+          "historyId": "REDACTED",
+          "internalDate": "REDACTED",
+          "labels": [
+            { "id": "SENT", "name": "SENT" },
+            { "id": "INBOX", "name": "INBOX" },
+            { "id": "IMPORTANT", "name": "IMPORTANT" },
+            { "id": "UNREAD", "name": "UNREAD" }
+          ],
+          "Subject": "AI Automation Course Feedback",
+          "From": "REDACTED",
+          "To": "REDACTED"
+        },
+        "pairedItem": { "item": 0 }
+      }
+    ]
+  },
+  "connections": {
+    "Gmail Trigger": {
+      "main": [[{ "node": "Get Data", "type": "main", "index": 0 }]]
+    },
+    "Get Data": {
+      "main": [[{ "node": "AI Agent", "type": "main", "index": 0 }]]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [[{ "node": "AI Agent", "type": "ai_languageModel", "index": 0 }]]
+    },
+    "Draft Tool": {
+      "ai_tool": [[{ "node": "AI Agent", "type": "ai_tool", "index": 0 }]]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "b9b9dba8-3748-4036-a1cc-cbaf21b1319d",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "REDACTED"
+  },
+  "nodeGroups": [],
+  "id": "5bv3a0Xkhyb8c5fL",
+  "tags": []
+}
