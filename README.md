@@ -1,24 +1,104 @@
-**AI Automation Full Course in Urdu | Build AI Agents & Automate Real Businesses**
+# 🤖 AI Automation Full Course 2026
+### Build AI Agents & Automate Real Businesses | Complete Urdu Course
 
-Learn AI Automation from scratch — how to build AI Agents and automate real business workflows using no-code tools like n8n, Zapier, and Make.com. This complete beginner-friendly course will take you from zero to building production-ready automations.
+[![YouTube](https://img.shields.io/badge/YouTube-Subscribe-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/channel/UChjYzYrEs5E5bbkevx168ig/)
+[![Kaggle](https://img.shields.io/badge/Kaggle-Datasets_Grandmaster-20BEFF?style=for-the-badge&logo=kaggle)](https://www.kaggle.com/asadullahcreative)
+[![GitHub](https://img.shields.io/badge/GitHub-AsadullahShehbaz-181717?style=for-the-badge&logo=github)](https://github.com/AsadullahShehbaz)
+[![X](https://img.shields.io/badge/X-@asadullahgenai-000000?style=for-the-badge&logo=x)](https://x.com/asadullahgenai)
 
-🎯 What you'll learn:
-• Fundamentals of AI Automation & AI Agents
-• Hands-on workflows with n8n, Zapier & Make.com
-• Integrating ChatGPT & Claude APIs into automations
-• Real business automations (WhatsApp, Email, CRM, Social Media)
-• How to freelance and start your own AI Automation Agency
+---
 
-👨‍💻 Taught by Asadullah Shehbaz — AI Engineer & Educator | Kaggle Datasets Grandmaster & Notebooks Master | 2x Remote ML Internship Experience | BSCS Graduated, GCU Lahore (2022-2026)
+## 📌 About This Course
 
-📩 Connect with me:
-GitHub: https://github.com/AsadullahShehbaz
-Kaggle: https://www.kaggle.com/asadullahcreative
-X (Twitter): https://x.com/asadullahgenai
-Instagram: https://www.instagram.com/asad_ullahshehbaz/
-Facebook: https://web.facebook.com/profile.php?id=61576230402114
-Email: asadullahcreative@gmail.com
+This is the **official GitHub repository** for the *AI Automation Full Course 2026* — a 50+ videos free Urdu YouTube series teaching you how to build real AI-powered automation workflows using **n8n, Zapier, and Make.com** — no deep coding required.
 
-🔔 Subscribe & hit the bell — new episodes every week!
+Each folder in this repo corresponds to a course module and contains:
+- 📄 **Workflow JSON files** — import directly into n8n, Zapier, or Make.com
+- 📝 **Lecture notes** — key concepts, tips, and reference links
+- 🖼️ **Slides** (where applicable)
 
-#AIAutomation #n8n #AIAgents #Zapier #MakeDotCom #LearnAI #NoCode #AIAgency
+---
+
+## 👨‍💻 About the Instructor
+
+**Asadullah Shehbaz** — AI Engineer & Educator
+
+| Achievement | Detail |
+|---|---|
+| 🏆 Kaggle Datasets Grandmaster | Rank **#43** of 10,232 worldwide |
+| 📓 Kaggle Notebooks Master | Rank **#93** of 62,330 worldwide |
+| 💼 ML Internships | 2× Remote (+ ongoing Gen AI internship) |
+| 🎓 Education | BSCS Final Year, GCU Lahore |
+| 🔬 Expertise | AI/ML, Gen AI, LangChain, LangGraph, MCP, NLP |
+
+---
+## 🗺️ Course Modules Overview
+
+| Module | Topics Covered | Episodes |
+|--------|---------------|----------|
+| 00 — Introduction | What is AI Automation, Tool Comparison, Setup  |
+| 01 — Basics | n8n Interface, Webhooks, JSON, Logic, Loops  |
+| 02 — AI Integration | OpenAI, Claude API, Prompt Engineering, AI Agents |
+| 03 — Business Automations | Email, WhatsApp, CRM, Social Media, E-commerce |
+| 04 — Advanced n8n | Databases, Sub-workflows, VPS Self-hosting  |
+| 05 — AI Agents | Multi-agent systems, Vector DBs, Memory  |
+| 06 — Monetization | Freelancing, AI Agency, Portfolio, Pricing |
+
+---
+
+## 🚀 How to Use This Repo
+
+### Import a Workflow into n8n
+1. Open your n8n instance
+2. Go to **Workflows → Import from File**
+3. Select the `workflow.json` from the relevant episode folder
+4. Add your API keys/credentials and run
+
+### Import into Make.com
+1. Open Make.com → **Scenarios → Import Blueprint**
+2. Upload the `.json` file from the episode folder
+
+### Import into Zapier
+> Zapier doesn't support direct JSON import — follow the step-by-step guide in the episode's `notes.md`
+
+---
+
+## 🛠️ Tools Used in This Course
+
+| Tool | Purpose | Free Tier |
+|------|---------|-----------|
+| [n8n](https://n8n.io) | Primary automation platform | ✅ Self-hostable |
+| [Zapier](https://zapier.com) | No-code automation | ✅ Limited |
+| [Make.com](https://make.com) | Visual automation | ✅ Limited |
+| [OpenAI API](https://openai.com) | GPT models | ✅ Trial credits |
+| [Anthropic Claude API](https://anthropic.com) | Claude models | ✅ Trial credits |
+| [Airtable](https://airtable.com) | Database | ✅ Free tier |
+
+---
+
+## 📬 Connect with Me
+
+| Platform | Link |
+|----------|------|
+| 📧 Email | asadullahcreative@gmail.com |
+| 🐙 GitHub | [AsadullahShehbaz](https://github.com/AsadullahShehbaz) |
+| 📊 Kaggle | [asadullahcreative](https://www.kaggle.com/asadullahcreative) |
+| 🐦 X (Twitter) | [@asadullahgenai](https://x.com/asadullahgenai) |
+| 📸 Instagram | [@asad_ullahshehbaz](https://www.instagram.com/asad_ullahshehbaz/) |
+| 👥 Facebook | [Asadullah Shehbaz](https://web.facebook.com/profile.php?id=61576230402114) |
+
+---
+
+## ⭐ Support This Project
+
+If this course is helping you, please:
+- **Star this repo** — it helps others find it
+- **Subscribe on YouTube** — keeps the course going
+- **Share** with anyone learning AI in Pakistan 🇵🇰
+
+---
+
+## 📄 License
+
+All workflow JSON files and notes in this repository are free to use for personal and educational purposes.
+Content from the YouTube videos remains the intellectual property of Asadullah Shehbaz.
