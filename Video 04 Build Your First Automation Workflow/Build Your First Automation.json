@@ -1,0 +1,180 @@
+{
+  "name": "Build Your First Automation",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "value": "REPLACE_WITH_SPREADSHEET_ID",
+          "mode": "list",
+          "cachedResultName": "AI Automation Course Feedback (Responses)",
+          "cachedResultUrl": "REPLACE_WITH_SPREADSHEET_URL"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "REPLACE_WITH_SHEET_ID",
+          "mode": "list",
+          "cachedResultName": "Form responses 1",
+          "cachedResultUrl": "REPLACE_WITH_SHEET_URL"
+        },
+        "event": "rowAdded",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [-272, -16],
+      "id": "1664e709-e0f6-4898-aad3-655772d111a1",
+      "name": "Google Sheets Trigger",
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "REPLACE_WITH_CREDENTIAL_ID",
+          "name": "Google Sheets Trigger OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "0d244cdd-fb75-49dd-84be-df20f10525d8",
+              "leftValue": "={{ $json.Email }}",
+              "rightValue": "@",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [0, -16],
+      "id": "c0c4d053-05eb-48e7-9090-234f7e40af2e",
+      "name": "Check User Email"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.Email }}",
+        "subject": "Thanks for your feedback!",
+        "emailType": "text",
+        "message": "=Hi {{ $json.Name }},\n\nThank you for submitting your feedback for the AI Automation Course! We have received your message and our team will review it shortly.\n\nBest regards,\nThe AI Automation Team",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [288, -32],
+      "id": "031c69cd-5c12-4fac-98ab-1f801098c0ee",
+      "name": "Send Email to User",
+      "webhookId": "REPLACE_WITH_WEBHOOK_ID",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "REPLACE_WITH_CREDENTIAL_ID",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "REPLACE_WITH_TEAM_EMAIL",
+        "subject": "🚨 New Google Form Submission Received!",
+        "message": "=Hey Team,\n\nA new user has submitted feedback through the Google Form. Here are the details:\n\n👤 Name: {{ $('Google Sheets Trigger').item.json.Name }}\n\n📧 Email: {{ $('Google Sheets Trigger').item.json.Email }}\n\n💬 Feedback: {{ $('Google Sheets Trigger').item.json.Feedback }}\n",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [512, -32],
+      "id": "f6c76c57-0778-497c-b976-e656eb1a6b4d",
+      "name": "Send Email to Team",
+      "webhookId": "REPLACE_WITH_WEBHOOK_ID",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "REPLACE_WITH_CREDENTIAL_ID",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "# Build Your First Automation: Google Forms, n8n, & Smart Logic",
+        "height": 80,
+        "width": 624
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [-128, -176],
+      "typeVersion": 1,
+      "id": "358c8fb5-45a3-4c83-ac45-7d8aa6d49e8b",
+      "name": "Sticky Note"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Sheets Trigger": {
+      "main": [
+        [
+          {
+            "node": "Check User Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check User Email": {
+      "main": [
+        [
+          {
+            "node": "Send Email to User",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Email to User": {
+      "main": [
+        [
+          {
+            "node": "Send Email to Team",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "REPLACE_WITH_VERSION_ID",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "REPLACE_WITH_INSTANCE_ID"
+  },
+  "nodeGroups": [],
+  "id": "REPLACE_WITH_WORKFLOW_ID",
+  "tags": []
+}
