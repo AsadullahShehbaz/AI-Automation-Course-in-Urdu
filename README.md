@@ -1,5 +1,5 @@
 # 🤖 AI Automation Full Course 2026
-### Build AI Agents & Automate Real Businesses | Complete Urdu Course
+### Build AI Agents & Automate Real Businesses | Complete   Course
 
 [![YouTube](https://img.shields.io/badge/YouTube-Subscribe-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/channel/UChjYzYrEs5E5bbkevx168ig/)
 [![Kaggle](https://img.shields.io/badge/Kaggle-Datasets_Grandmaster-20BEFF?style=for-the-badge&logo=kaggle)](https://www.kaggle.com/asadullahcreative)
@@ -10,7 +10,7 @@
 
 ## 📌 About This Course
 
-This is the **official GitHub repository** for the *AI Automation Full Course 2026* — a 50+ videos free Urdu YouTube series teaching you how to build real AI-powered automation workflows using **n8n, Zapier, and Make.com** — no deep coding required.
+This is the **official GitHub repository** for the *AI Automation Full Course 2026* — a 50+ videos free   YouTube series teaching you how to build real AI-powered automation workflows using **n8n, Zapier, and Make.com** — no deep coding required.
 
 Each folder in this repo corresponds to a course module and contains:
 - 📄 **Workflow JSON files** — import directly into n8n, Zapier, or Make.com
